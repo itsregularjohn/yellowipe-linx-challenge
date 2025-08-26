@@ -1,0 +1,19 @@
+{
+  "name": "@yellowipe/schemas",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Shared Zod schemas for Yellowipe social media platform",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "typescript": "5.8.2"
+  }
+}

@@ -6,4 +6,13 @@ export const schema = z.object({
 
 export type Schema = z.infer<typeof schema>;
 
-export * from './auth';
+// Auth schemas
+export * from './user';
+export * from './login';
+export * from './signup';
+export * from './forgot-password';
+export * from './reset-password';
+export * from './send-verification-email';
+export * from './verify-email';
+export * from './update-email';
+export * from './update-password';

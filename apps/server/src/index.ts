@@ -1,14 +1,13 @@
 import { serve } from "@hono/node-server";
 import app from "./app";
-
-const PORT = +process.env.PORT!;
+import { env } from "./modules/core";
 
 const server = serve({
   fetch: app.fetch,
-  port: PORT,
+  port: env.PORT,
 });
 
-console.log(`Server is available at http://localhost:${PORT}`);
+console.log(`Server is available at http://localhost:${env.PORT}`);
 
 process.on("SIGINT", () => {
   server.close();

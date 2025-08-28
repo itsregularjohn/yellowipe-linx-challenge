@@ -15,9 +15,25 @@ datasource db {
 }
 
 model User {
-  id           String   @id @default(ulid())
-  createdAt    DateTime @default(now())
-  name         String
-  email        String   @unique
-  passwordHash String
+  id            String   @id @default(ulid())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  name          String
+  email         String   @unique
+  passwordHash  String
+  emailVerified Boolean  @default(false)
+  
+  verificationCodes VerificationCode[]
+}
+
+model VerificationCode {
+  id        String   @id @default(ulid())
+  createdAt DateTime @default(now())
+  code      String   @unique
+  type      String   // "email_verification" | "password_reset"
+  expiresAt DateTime
+  userId    String
+  email     String
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

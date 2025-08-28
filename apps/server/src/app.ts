@@ -1,10 +1,12 @@
 import { Hono } from "hono";
+import { cors } from 'hono/cors'
 import { requestId } from "hono/request-id";
 import { authRouter } from "./modules/auth";
 import { HttpError } from "./modules/core/errors";
 import { ContentfulStatusCode } from "hono/utils/http-status";
 
 const app = new Hono();
+app.use(cors())
 
 app.use("*", requestId());
 

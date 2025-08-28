@@ -1,21 +1,7 @@
-import { schema } from "@yellowipe/schemas";
-import { useState } from "react";
+import { AppRouter } from './modules/core';
 
 function App() {
-  const [hello, setHello] = useState("hello");
-
-  return (
-    <>
-      <button
-        onClick={() => {
-          const { hello: updatedHello } = schema.parse({ hello });
-          setHello(updatedHello);
-        }}
-      >
-        {hello}
-      </button>
-    </>
-  );
+  return <AppRouter />;
 }
 
 export default App;

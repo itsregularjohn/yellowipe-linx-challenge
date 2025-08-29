@@ -1,10 +1,11 @@
-import React, { useReducer, useEffect, ReactNode } from 'react';
+import { useReducer, useEffect } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 import { AuthContext } from './AuthContext';
 import { authReducer, initialState } from './reducer';
 import { AUTH_STORAGE_KEY } from '../../../constants';
 import { authApi } from '../services/auth';
 
-export const AuthProvider: React.FC<{ children: ReactNode }> = ({
+export const AuthProvider: FC<PropsWithChildren> = ({
   children,
 }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
@@ -74,8 +75,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   };
 
   const updateEmail = async (newEmail: string) => {
-    const response = await authApi.updateEmail({ newEmail });
-    // User email will be updated, but emailVerified will be false
+    await authApi.updateEmail({ newEmail });
     if (state.user) {
       dispatch({ type: 'SET_USER', payload: { ...state.user, email: newEmail } });
     }

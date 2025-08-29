@@ -1,0 +1,64 @@
+service: yellowipe
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs22.x
+  region: us-east-1
+  stage: ${opt:stage, 'dev'}
+  timeout: 29
+  httpApi:
+    cors:
+      allowedOrigins:
+        - http://localhost:3000
+        - http://localhost:3001
+        - http://localhost:5173
+        - https://yellowipe.regularjohn.me/
+      allowedHeaders:
+        - Content-Type
+        - X-Amz-Date
+        - Authorization
+        - X-Api-Key
+        - X-Amz-Security-Token
+        - X-Amz-User-Agent
+        - Accept
+        - Origin
+        - Referer
+      allowedMethods:
+        - GET
+        - POST
+        - PUT
+        - DELETE
+        - PATCH
+        - OPTIONS
+      allowCredentials: true
+      maxAge: 86400
+  environment:
+    NODE_ENV: ${self:custom.nodeEnv.${self:provider.stage}}
+    JWT_SECRET: ${env:JWT_SECRET}
+    JWT_EXPIRATION: ${env:JWT_EXPIRATION, '24h'}
+    DATABASE_URL: ${env:DATABASE_URL}
+    GOOGLE_GMAIL_EMAIL: ${env:GOOGLE_GMAIL_EMAIL}
+    GOOGLE_APP_PASSWORD: ${env:GOOGLE_APP_PASSWORD}
+
+functions:
+  app:
+    handler: src/handler.handler
+    timeout: 29
+    events:
+      - httpApi:
+          path: /
+          method: ANY
+      - httpApi:
+          path: /{proxy+}
+          method: ANY
+
+custom:
+  nodeEnv:
+    dev: development
+    prod: production
+  serverless-offline:
+    noPrependStageInUrl: true
+    httpPort: 4000

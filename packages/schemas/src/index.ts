@@ -16,3 +16,6 @@ export * from './send-verification-email';
 export * from './verify-email';
 export * from './update-email';
 export * from './update-password';
+
+// Uploads schemas
+export * from './uploads';

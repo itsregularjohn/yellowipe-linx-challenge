@@ -24,6 +24,7 @@ model User {
   emailVerified Boolean  @default(false)
   
   verificationCodes VerificationCode[]
+  uploads           Upload[]
 }
 
 model VerificationCode {
@@ -34,6 +35,19 @@ model VerificationCode {
   expiresAt DateTime
   userId    String
   email     String
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Upload {
+  id               String   @id @default(ulid())
+  createdAt        DateTime @default(now())
+  key              String   @unique
+  originalFileName String
+  mimeType         String
+  fileSize         Int
+  publicUrl        String
+  userId           String
   
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

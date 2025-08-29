@@ -2,6 +2,7 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { requestId } from "hono/request-id";
 import { authRouter } from "./modules/auth";
+import { uploadsRouter } from "./modules/uploads";
 import { HttpError } from "./modules/core/errors";
 import { ContentfulStatusCode } from "hono/utils/http-status";
 
@@ -22,5 +23,6 @@ app.onError((err, c) => {
 });
 
 app.route("/v1/auth", authRouter);
+app.route("/v1/uploads", uploadsRouter);
 
 export default app;

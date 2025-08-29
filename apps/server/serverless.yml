@@ -1,6 +1,7 @@
 service: yellowipe
 
 plugins:
+  - serverless-dotenv-plugin
   - serverless-offline
 
 provider:
@@ -9,6 +10,26 @@ provider:
   region: us-east-1
   stage: ${opt:stage, 'dev'}
   timeout: 29
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - s3:GetObject
+            - s3:PutObject
+            - s3:DeleteObject
+            - s3:GetObjectAcl
+            - s3:PutObjectAcl
+          Resource:
+            - !Join
+              - ''
+              - - !GetAtt YellowipeUploadsBucket.Arn
+                - '/*'
+        - Effect: Allow
+          Action:
+            - s3:ListBucket
+          Resource:
+            - !GetAtt YellowipeUploadsBucket.Arn
   httpApi:
     cors:
       allowedOrigins:
@@ -17,6 +38,7 @@ provider:
         - http://localhost:5173
         - https://yellowipe.regularjohn.me
         - https://jp-yellowipe-challenge.netlify.app
+        - https://jp-yellowipe-challenge-dev.netlify.app
       allowedHeaders:
         - Content-Type
         - X-Amz-Date
@@ -43,6 +65,8 @@ provider:
     DATABASE_URL: ${env:DATABASE_URL}
     GOOGLE_GMAIL_EMAIL: ${env:GOOGLE_GMAIL_EMAIL}
     GOOGLE_APP_PASSWORD: ${env:GOOGLE_APP_PASSWORD}
+    AWS_S3_BUCKET_NAME: !Ref YellowipeUploadsBucket
+    AWS_S3_REGION: ${self:provider.region}
 
 functions:
   app:
@@ -56,7 +80,38 @@ functions:
           path: /{proxy+}
           method: ANY
 
+resources:
+  Resources:
+    YellowipeUploadsBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: yellowipe-uploads-${self:provider.stage}
+        PublicAccessBlockConfiguration:
+          BlockPublicAcls: true
+          BlockPublicPolicy: true
+          IgnorePublicAcls: true
+          RestrictPublicBuckets: true
+        CorsConfiguration:
+          CorsRules:
+            - AllowedHeaders:
+                - "*"
+              AllowedMethods:
+                - GET
+                - PUT
+                - POST
+                - DELETE
+                - HEAD
+              AllowedOrigins:
+                - "*"
+              MaxAge: 3000
+
 custom:
+  dotenv:
+    path: .env.${self:provider.stage}
+    basePath: ./
+    logging: false
+    exclude:
+      - AWS_PROFILE
   nodeEnv:
     dev: development
     prod: production

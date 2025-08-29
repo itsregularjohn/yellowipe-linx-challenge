@@ -9,6 +9,7 @@ import {
   VerifyEmailPage,
 } from "../../auth";
 import { ProtectedRoute, HomePage } from "../components";
+import { UploadsPage } from "../../uploads";
 
 const PublicRoute: FC<PropsWithChildren> = ({ children }) => {
   const { isAuthenticated, isLoading } = useAuth();
@@ -39,6 +40,14 @@ const AppRoutes: FC = () => {
         element={
           <ProtectedRoute>
             <HomePage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/uploads"
+        element={
+          <ProtectedRoute>
+            <UploadsPage />
           </ProtectedRoute>
         }
       />

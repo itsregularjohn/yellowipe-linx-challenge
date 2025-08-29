@@ -9,6 +9,8 @@ export const envSchema = z.object({
   GOOGLE_GMAIL_EMAIL: z.string().email().optional(),
   GOOGLE_APP_PASSWORD: z.string().optional(),
   FRONTEND_URL: z.string().url().default("http://localhost:3000"),
+  AWS_S3_BUCKET_NAME: z.string().min(1, "AWS_S3_BUCKET_NAME is required"),
+  AWS_S3_REGION: z.string().default("us-east-1"),
 });
 
 export const env = envSchema.parse(process.env);

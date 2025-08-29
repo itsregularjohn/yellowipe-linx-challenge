@@ -1,18 +1,18 @@
-import { SignupInput, SignupResponse } from '@yellowipe/schemas';
-import { RequestContext, ConflictError, prisma } from '../../core';
-import { hashPassword } from './utils/password';
-import { generateToken } from './utils/jwt';
+import { SignupInput, SignupResponse } from "@yellowipe/schemas";
+import { RequestContext, ConflictError, prisma } from "../../core";
+import { hashPassword } from "./utils/password";
+import { generateToken } from "./utils/jwt";
 
 export async function signup(
   context: RequestContext,
-  input: SignupInput
+  input: SignupInput,
 ): Promise<SignupResponse> {
   const existingUser = await prisma.user.findUnique({
     where: { email: input.email },
   });
 
   if (existingUser) {
-    throw new ConflictError('User with this email already exists');
+    throw new ConflictError("User with this email already exists");
   }
 
   const hashedPassword = await hashPassword(input.password);

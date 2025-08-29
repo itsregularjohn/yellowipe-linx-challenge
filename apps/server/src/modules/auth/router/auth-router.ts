@@ -1,27 +1,27 @@
 import { Hono } from "hono";
 import { jwt } from "hono/jwt";
 import { zValidator } from "@hono/zod-validator";
-import { 
-  loginInputSchema, 
+import {
+  loginInputSchema,
   signupInputSchema,
   forgotPasswordInputSchema,
   resetPasswordInputSchema,
   sendVerificationEmailInputSchema,
   verifyEmailInputSchema,
   updateEmailInputSchema,
-  updatePasswordInputSchema
+  updatePasswordInputSchema,
 } from "@yellowipe/schemas";
 import { getContext, env, UnauthorizedError } from "../../core";
-import { 
-  login, 
-  signup, 
+import {
+  login,
+  signup,
   me,
   forgotPassword,
   resetPassword,
   sendVerificationEmail,
   verifyEmail,
   updateEmail,
-  updatePassword
+  updatePassword,
 } from "../functions";
 
 const authRouter = new Hono();
@@ -55,34 +55,50 @@ authRouter.get("/me", async (c) => {
 });
 
 // Password recovery routes
-authRouter.post("/forgot-password", zValidator("json", forgotPasswordInputSchema), async (c) => {
-  const context = getContext(c);
-  const input = c.req.valid("json");
-  const result = await forgotPassword(context, input);
-  return c.json(result);
-});
+authRouter.post(
+  "/forgot-password",
+  zValidator("json", forgotPasswordInputSchema),
+  async (c) => {
+    const context = getContext(c);
+    const input = c.req.valid("json");
+    const result = await forgotPassword(context, input);
+    return c.json(result);
+  },
+);
 
-authRouter.post("/reset-password", zValidator("json", resetPasswordInputSchema), async (c) => {
-  const context = getContext(c);
-  const input = c.req.valid("json");
-  const result = await resetPassword(context, input);
-  return c.json(result);
-});
+authRouter.post(
+  "/reset-password",
+  zValidator("json", resetPasswordInputSchema),
+  async (c) => {
+    const context = getContext(c);
+    const input = c.req.valid("json");
+    const result = await resetPassword(context, input);
+    return c.json(result);
+  },
+);
 
 // Email verification routes
-authRouter.post("/send-verification-email", zValidator("json", sendVerificationEmailInputSchema), async (c) => {
-  const context = getContext(c);
-  const input = c.req.valid("json");
-  const result = await sendVerificationEmail(context, input);
-  return c.json(result);
-});
+authRouter.post(
+  "/send-verification-email",
+  zValidator("json", sendVerificationEmailInputSchema),
+  async (c) => {
+    const context = getContext(c);
+    const input = c.req.valid("json");
+    const result = await sendVerificationEmail(context, input);
+    return c.json(result);
+  },
+);
 
-authRouter.post("/verify-email", zValidator("json", verifyEmailInputSchema), async (c) => {
-  const context = getContext(c);
-  const input = c.req.valid("json");
-  const result = await verifyEmail(context, input);
-  return c.json(result);
-});
+authRouter.post(
+  "/verify-email",
+  zValidator("json", verifyEmailInputSchema),
+  async (c) => {
+    const context = getContext(c);
+    const input = c.req.valid("json");
+    const result = await verifyEmail(context, input);
+    return c.json(result);
+  },
+);
 
 // Protected routes requiring authentication
 const authMiddleware = async (c, next) => {
@@ -94,19 +110,27 @@ const authMiddleware = async (c, next) => {
 };
 
 authRouter.use("/update-email", authMiddleware);
-authRouter.post("/update-email", zValidator("json", updateEmailInputSchema), async (c) => {
-  const context = getContext(c);
-  const input = c.req.valid("json");
-  const result = await updateEmail(context, input);
-  return c.json(result);
-});
+authRouter.post(
+  "/update-email",
+  zValidator("json", updateEmailInputSchema),
+  async (c) => {
+    const context = getContext(c);
+    const input = c.req.valid("json");
+    const result = await updateEmail(context, input);
+    return c.json(result);
+  },
+);
 
 authRouter.use("/update-password", authMiddleware);
-authRouter.post("/update-password", zValidator("json", updatePasswordInputSchema), async (c) => {
-  const context = getContext(c);
-  const input = c.req.valid("json");
-  const result = await updatePassword(context, input);
-  return c.json(result);
-});
+authRouter.post(
+  "/update-password",
+  zValidator("json", updatePasswordInputSchema),
+  async (c) => {
+    const context = getContext(c);
+    const input = c.req.valid("json");
+    const result = await updatePassword(context, input);
+    return c.json(result);
+  },
+);
 
 export { authRouter };

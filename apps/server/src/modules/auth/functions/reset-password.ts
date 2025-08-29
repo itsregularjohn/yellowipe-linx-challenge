@@ -15,7 +15,7 @@ export interface ResetPasswordResponse {
 
 export async function resetPassword(
   context: RequestContext,
-  input: ResetPasswordInput
+  input: ResetPasswordInput,
 ): Promise<ResetPasswordResponse> {
   // Find and validate verification code
   const verificationCode = await prisma.verificationCode.findUnique({

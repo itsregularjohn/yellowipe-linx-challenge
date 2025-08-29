@@ -20,7 +20,7 @@ export interface UpdatePasswordResponse {
 
 export async function updatePassword(
   context: RequestContext,
-  input: UpdatePasswordInput
+  input: UpdatePasswordInput,
 ): Promise<UpdatePasswordResponse> {
   requireUserContext(context);
 
@@ -35,7 +35,7 @@ export async function updatePassword(
   // Verify current password
   const isValidPassword = await verifyPassword(
     input.currentPassword,
-    user.passwordHash
+    user.passwordHash,
   );
   if (!isValidPassword) {
     throw new BadRequestError("Current password is incorrect");

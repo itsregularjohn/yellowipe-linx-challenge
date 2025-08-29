@@ -1,23 +1,26 @@
-import { LoginInput, LoginResponse } from '@yellowipe/schemas';
-import { RequestContext, UnauthorizedError, prisma } from '../../core';
-import { verifyPassword } from './utils/password';
-import { generateToken } from './utils/jwt';
+import { LoginInput, LoginResponse } from "@yellowipe/schemas";
+import { RequestContext, UnauthorizedError, prisma } from "../../core";
+import { verifyPassword } from "./utils/password";
+import { generateToken } from "./utils/jwt";
 
 export async function login(
   context: RequestContext,
-  input: LoginInput
+  input: LoginInput,
 ): Promise<LoginResponse> {
   const user = await prisma.user.findUnique({
     where: { email: input.email },
   });
 
   if (!user) {
-    throw new UnauthorizedError('Invalid email or password');
+    throw new UnauthorizedError("Invalid email or password");
   }
 
-  const isValidPassword = await verifyPassword(input.password, user.passwordHash);
+  const isValidPassword = await verifyPassword(
+    input.password,
+    user.passwordHash,
+  );
   if (!isValidPassword) {
-    throw new UnauthorizedError('Invalid email or password');
+    throw new UnauthorizedError("Invalid email or password");
   }
 
   const publicUser = {

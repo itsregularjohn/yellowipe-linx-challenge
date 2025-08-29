@@ -29,7 +29,7 @@ afterEach(async () => {
         },
       },
     });
-    
+
     await globalWithDb.testDb.user.deleteMany({
       where: {
         email: {

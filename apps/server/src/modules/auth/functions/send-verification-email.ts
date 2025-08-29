@@ -23,7 +23,7 @@ export interface SendVerificationEmailResponse {
 
 export async function sendVerificationEmail(
   context: RequestContext,
-  input: SendVerificationEmailInput
+  input: SendVerificationEmailInput,
 ): Promise<SendVerificationEmailResponse> {
   const user = await prisma.user.findUnique({
     where: { email: input.email },

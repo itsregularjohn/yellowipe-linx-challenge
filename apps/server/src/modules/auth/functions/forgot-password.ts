@@ -8,7 +8,7 @@ import { sendEmail } from "./utils/send-email";
 
 export async function forgotPassword(
   context: RequestContext,
-  input: ForgotPasswordInput
+  input: ForgotPasswordInput,
 ): Promise<ForgotPasswordResponse> {
   const user = await prisma.user.findUnique({
     where: { email: input.email },

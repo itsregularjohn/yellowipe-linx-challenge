@@ -13,7 +13,7 @@ export interface VerifyEmailResponse {
 
 export async function verifyEmail(
   context: RequestContext,
-  input: VerifyEmailInput
+  input: VerifyEmailInput,
 ): Promise<VerifyEmailResponse> {
   // Find and validate verification code
   const verificationCode = await prisma.verificationCode.findUnique({

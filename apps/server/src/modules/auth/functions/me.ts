@@ -1,5 +1,5 @@
-import { User } from '@yellowipe/schemas';
-import { RequestContext, requireUserContext, prisma } from '../../core';
+import { User } from "@yellowipe/schemas";
+import { RequestContext, requireUserContext, prisma } from "../../core";
 
 export async function me(context: RequestContext): Promise<User> {
   requireUserContext(context);
@@ -9,7 +9,7 @@ export async function me(context: RequestContext): Promise<User> {
   });
 
   if (!user) {
-    throw new Error('User not found');
+    throw new Error("User not found");
   }
 
   return {

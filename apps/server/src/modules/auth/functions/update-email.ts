@@ -18,7 +18,7 @@ export interface UpdateEmailResponse {
 
 export async function updateEmail(
   context: RequestContext,
-  input: UpdateEmailInput
+  input: UpdateEmailInput,
 ): Promise<UpdateEmailResponse> {
   requireUserContext(context);
 

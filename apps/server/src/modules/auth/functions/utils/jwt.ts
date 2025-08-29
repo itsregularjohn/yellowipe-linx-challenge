@@ -8,7 +8,7 @@ export function generateToken(user: User): string {
       email: user.email,
     },
     env.JWT_SECRET,
-    { expiresIn: "7d", subject: user.id }
+    { expiresIn: "7d", subject: user.id },
   );
 }
 

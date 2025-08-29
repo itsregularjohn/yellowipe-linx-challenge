@@ -12,6 +12,7 @@ import {
   updatePasswordInputSchema,
 } from "@yellowipe/schemas";
 import { getContext, env, UnauthorizedError } from "../../core";
+import { authMiddleware } from "../middleware";
 import {
   login,
   signup,
@@ -101,13 +102,6 @@ authRouter.post(
 );
 
 // Protected routes requiring authentication
-const authMiddleware = async (c, next) => {
-  try {
-    return await jwt({ secret: env.JWT_SECRET })(c, next);
-  } catch (error) {
-    throw new UnauthorizedError("Invalid or missing token");
-  }
-};
 
 authRouter.use("/update-email", authMiddleware);
 authRouter.post(

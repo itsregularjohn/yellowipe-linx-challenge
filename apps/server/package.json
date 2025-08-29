@@ -9,7 +9,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "format": "prettier --write \"src/**/*.{ts,js,json}\"",
-    "deploy:sls": "sls deploy --aws-profile yellowipe",
+    "deploy:sls": "sls deploy --stage prod --aws-profile yellowipe",
     "deploy:sls:dev": "sls deploy --stage dev --aws-profile yellowipe"
   },
   "dependencies": {

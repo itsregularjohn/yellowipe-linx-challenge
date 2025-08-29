@@ -3,10 +3,19 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import type { ResetPasswordInput } from '@yellowipe/schemas';
 import { resetPasswordInputSchema } from '@yellowipe/schemas';
 import { authApi } from '../services/auth';
 import { Link } from 'react-router-dom';
+import { z } from 'zod';
+
+const clientResetPasswordSchema = resetPasswordInputSchema.extend({
+  confirmPassword: z.string().min(6, 'Password confirmation is required'),
+}).refine((data) => data.newPassword === data.confirmPassword, {
+  message: "Passwords don't match",
+  path: ["confirmPassword"],
+});
+
+type ClientResetPasswordInput = z.infer<typeof clientResetPasswordSchema>;
 
 export const ResetPasswordPage: FC = () => {
   const [searchParams] = useSearchParams();
@@ -21,18 +30,19 @@ export const ResetPasswordPage: FC = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ResetPasswordInput>({
-    resolver: zodResolver(resetPasswordInputSchema),
+  } = useForm<ClientResetPasswordInput>({
+    resolver: zodResolver(clientResetPasswordSchema),
     defaultValues: {
       code,
     },
   });
 
-  const onSubmit = async (data: ResetPasswordInput) => {
+  const onSubmit = async (data: ClientResetPasswordInput) => {
     try {
       setError(null);
       setIsLoading(true);
-      await authApi.resetPassword(data);
+      const { confirmPassword, ...resetData } = data;
+      await authApi.resetPassword(resetData);
       setIsSuccess(true);
       setTimeout(() => {
         navigate('/auth');

@@ -20,8 +20,11 @@ import type {
 import { API_BASE_URL, AUTH_STORAGE_KEY } from '../../../constants';
 
 class ApiError extends Error {
-  constructor(public status: number, message: string) {
+  public status: number;
+
+  constructor(status: number, message: string) {
     super(message);
+    this.status = status;
     this.name = 'ApiError';
   }
 }

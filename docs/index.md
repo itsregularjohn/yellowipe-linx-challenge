@@ -41,6 +41,7 @@ modules/
 
 ## Funcionalidades em Desenvolvimento
 
+- 🚧 Sistema de configurações do usuário
 - 🚧 Sistema de posts
 - 🚧 Sistema de comentários
 - 🚧 Sistema de reações/likes

@@ -15,7 +15,8 @@ provider:
         - http://localhost:3000
         - http://localhost:3001
         - http://localhost:5173
-        - https://yellowipe.regularjohn.me/
+        - https://yellowipe.regularjohn.me
+        - https://jp-yellowipe-challenge.netlify.app
       allowedHeaders:
         - Content-Type
         - X-Amz-Date

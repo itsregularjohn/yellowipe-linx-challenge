@@ -27,6 +27,7 @@ model User {
   uploads           Upload[]
   posts             Post[]
   comments          Comment[]
+  reactions         Reaction[]
 }
 
 model VerificationCode {
@@ -62,9 +63,10 @@ model Post {
   uploadId String?
   userId   String
   
-  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  upload   Upload?   @relation(fields: [uploadId], references: [id], onDelete: SetNull)
-  comments Comment[] @relation("PostComments")
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  upload    Upload?    @relation(fields: [uploadId], references: [id], onDelete: SetNull)
+  comments  Comment[]  @relation("PostComments")
+  reactions Reaction[] @relation("PostReactions")
 }
 
 model Comment {
@@ -75,8 +77,25 @@ model Comment {
   commentId String?
   userId    String
   
-  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  post          Post?     @relation("PostComments", fields: [postId], references: [id], onDelete: Cascade)
-  parentComment Comment?  @relation("CommentReplies", fields: [commentId], references: [id], onDelete: SetNull)
-  replies       Comment[] @relation("CommentReplies")
+  user          User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  post          Post?      @relation("PostComments", fields: [postId], references: [id], onDelete: Cascade)
+  parentComment Comment?   @relation("CommentReplies", fields: [commentId], references: [id], onDelete: SetNull)
+  replies       Comment[]  @relation("CommentReplies")
+  reactions     Reaction[] @relation("CommentReactions")
+}
+
+model Reaction {
+  id        String   @id @default(ulid())
+  createdAt DateTime @default(now())
+  type      String   // "like" | "love" | "laugh" | "angry" | "sad"
+  postId    String?
+  commentId String?
+  userId    String
+  
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  post    Post?    @relation("PostReactions", fields: [postId], references: [id], onDelete: Cascade)
+  comment Comment? @relation("CommentReactions", fields: [commentId], references: [id], onDelete: Cascade)
+  
+  @@unique([userId, postId])
+  @@unique([userId, commentId])
 }

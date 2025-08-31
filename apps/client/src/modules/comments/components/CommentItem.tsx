@@ -2,6 +2,7 @@ import type { FC } from "react";
 import { useState } from "react";
 import type { Comment } from "@yellowipe-linx/schemas";
 import { useAuth } from "../../auth/contexts/AuthContext";
+import { ReactionButton } from "../../reactions";
 
 interface CommentItemProps {
   comment: Comment;
@@ -90,6 +91,8 @@ export const CommentItem: FC<CommentItemProps> = ({
 
         {/* Actions */}
         <div className="flex items-center space-x-4 mt-2 ml-3">
+          <ReactionButton commentId={comment.id} className="text-xs" />
+          
           {/* Reply button */}
           {!comment.commentId && onReply && (
             <button

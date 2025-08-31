@@ -3,6 +3,7 @@ import { useState } from "react";
 import type { Post } from "@yellowipe-linx/schemas";
 import { useAuth } from "../../auth/contexts/AuthContext";
 import { CommentsSection } from "../../comments";
+import { ReactionButton } from "../../reactions";
 
 interface PostCardProps {
   post: Post;
@@ -135,24 +136,7 @@ export const PostCard: FC<PostCardProps> = ({ post, onDelete }) => {
       {/* Actions Bar */}
       <div className="border-t border-gray-200 px-4 py-3">
         <div className="flex items-center space-x-6 text-gray-500">
-          {/* React Button - Placeholder for future functionality */}
-          <button className="flex items-center space-x-1 hover:text-yellow-600">
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            <span className="text-sm">React</span>
-          </button>
-
+          <ReactionButton postId={post.id} />
         </div>
       </div>
 

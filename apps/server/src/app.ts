@@ -6,6 +6,7 @@ import { authRouter } from "./modules/auth";
 import { uploadsRouter } from "./modules/uploads";
 import { postsRouter } from "./modules/posts";
 import { commentsRouter } from "./modules/comments";
+import { reactionsRouter } from "./modules/reactions";
 import { HttpError } from "./modules/core/errors";
 import { ContentfulStatusCode } from "hono/utils/http-status";
 
@@ -23,6 +24,7 @@ app.onError((err, c) => {
     );
   }
 
+  console.log(err)
   return c.json({ error: "Internal server error" }, 500);
 });
 
@@ -30,5 +32,6 @@ app.route("/v1/auth", authRouter);
 app.route("/v1/uploads", uploadsRouter);
 app.route("/v1/posts", postsRouter);
 app.route("/v1/comments", commentsRouter);
+app.route("/v1/reactions", reactionsRouter);
 
 export default app;

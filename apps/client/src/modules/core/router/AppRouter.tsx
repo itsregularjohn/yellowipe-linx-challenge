@@ -10,6 +10,7 @@ import {
 } from "../../auth";
 import { ProtectedRoute, HomePage } from "../components";
 import { UploadsPage } from "../../uploads";
+import { SettingsPage } from "../../settings";
 
 const PublicRoute: FC<PropsWithChildren> = ({ children }) => {
   const { isAuthenticated, isLoading } = useAuth();
@@ -48,6 +49,14 @@ const AppRoutes: FC = () => {
         element={
           <ProtectedRoute>
             <UploadsPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/settings"
+        element={
+          <ProtectedRoute>
+            <SettingsPage />
           </ProtectedRoute>
         }
       />

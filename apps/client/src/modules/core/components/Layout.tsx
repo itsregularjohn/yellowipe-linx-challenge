@@ -36,6 +36,12 @@ export const Layout: FC<LayoutProps> = ({ children, title = 'Yellowipe' }) => {
                   >
                     Uploads
                   </Link>
+                  <Link
+                    to="/settings"
+                    className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md"
+                  >
+                    Settings
+                  </Link>
                   <button
                     onClick={logout}
                     className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-md"

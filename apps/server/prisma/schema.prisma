@@ -26,6 +26,7 @@ model User {
   verificationCodes VerificationCode[]
   uploads           Upload[]
   posts             Post[]
+  comments          Comment[]
 }
 
 model VerificationCode {
@@ -61,6 +62,21 @@ model Post {
   uploadId String?
   userId   String
   
-  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-  upload Upload? @relation(fields: [uploadId], references: [id], onDelete: SetNull)
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  upload   Upload?   @relation(fields: [uploadId], references: [id], onDelete: SetNull)
+  comments Comment[] @relation("PostComments")
+}
+
+model Comment {
+  id        String   @id @default(ulid())
+  createdAt DateTime @default(now())
+  content   String
+  postId    String?
+  commentId String?
+  userId    String
+  
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  post          Post?     @relation("PostComments", fields: [postId], references: [id], onDelete: Cascade)
+  parentComment Comment?  @relation("CommentReplies", fields: [commentId], references: [id], onDelete: SetNull)
+  replies       Comment[] @relation("CommentReplies")
 }

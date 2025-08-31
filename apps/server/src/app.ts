@@ -5,6 +5,7 @@ import { logger } from "hono/logger";
 import { authRouter } from "./modules/auth";
 import { uploadsRouter } from "./modules/uploads";
 import { postsRouter } from "./modules/posts";
+import { commentsRouter } from "./modules/comments";
 import { HttpError } from "./modules/core/errors";
 import { ContentfulStatusCode } from "hono/utils/http-status";
 
@@ -28,5 +29,6 @@ app.onError((err, c) => {
 app.route("/v1/auth", authRouter);
 app.route("/v1/uploads", uploadsRouter);
 app.route("/v1/posts", postsRouter);
+app.route("/v1/comments", commentsRouter);
 
 export default app;

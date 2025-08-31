@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import type { SignupInput } from '@yellowipe-linx/schemas';
 import { signupInputSchema } from '@yellowipe-linx/schemas';
 import { useAuth } from '../contexts/AuthContext';
+import { ErrorAlert } from '../../core/components';
 
 interface SignupFormProps {
   onToggleMode: () => void;
@@ -86,11 +87,7 @@ export const SignupForm: FC<SignupFormProps> = ({ onToggleMode }) => {
           )}
         </div>
 
-        {error && (
-          <div className="p-3 bg-red-100 border border-red-400 text-red-700 rounded-md">
-            {error}
-          </div>
-        )}
+        <ErrorAlert error={error} onDismiss={() => setError(null)} />
 
         <button
           type="submit"

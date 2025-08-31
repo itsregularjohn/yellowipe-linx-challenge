@@ -28,8 +28,8 @@ export async function apiRequest<T>(
   if (!response.ok) {
     const errorData = await response
       .json()
-      .catch(() => ({ message: 'Unknown error' }));
-    throw new ApiError(response.status, errorData.message || errorData.error || 'Request failed');
+      .catch(() => ({ error: 'Unknown error' }));
+    throw new ApiError(response.status, errorData.error || errorData.message || 'Request failed');
   }
 
   if (response.status === 204) {

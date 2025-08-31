@@ -6,6 +6,7 @@ import type { LoginInput } from '@yellowipe-linx/schemas';
 import { loginInputSchema } from '@yellowipe-linx/schemas';
 import { useAuth } from '../contexts/AuthContext';
 import { Link } from 'react-router-dom';
+import { ErrorAlert } from '../../core/components';
 
 interface LoginFormProps {
   onToggleMode: () => void;
@@ -71,11 +72,7 @@ export const LoginForm: FC<LoginFormProps> = ({ onToggleMode }) => {
           )}
         </div>
 
-        {error && (
-          <div className="p-3 bg-red-100 border border-red-400 text-red-700 rounded-md">
-            {error}
-          </div>
-        )}
+        <ErrorAlert error={error} onDismiss={() => setError(null)} />
 
         <button
           type="submit"

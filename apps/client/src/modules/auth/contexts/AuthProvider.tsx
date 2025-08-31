@@ -33,27 +33,23 @@ export const AuthProvider: FC<PropsWithChildren> = ({
   }, []);
 
   const login = async (email: string, password: string) => {
-    dispatch({ type: 'LOGIN_START' });
     try {
       const response = await authApi.login({ email, password });
 
       localStorage.setItem(AUTH_STORAGE_KEY, response.token);
       dispatch({ type: 'LOGIN_SUCCESS', payload: response });
     } catch (error) {
-      dispatch({ type: 'LOGIN_FAILURE' });
       throw error;
     }
   };
 
   const signup = async (name: string, email: string, password: string) => {
-    dispatch({ type: 'LOGIN_START' });
     try {
       const response = await authApi.signup({ name, email, password });
 
       localStorage.setItem(AUTH_STORAGE_KEY, response.token);
       dispatch({ type: 'LOGIN_SUCCESS', payload: response });
     } catch (error) {
-      dispatch({ type: 'LOGIN_FAILURE' });
       throw error;
     }
   };

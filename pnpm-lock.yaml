@@ -26,7 +26,7 @@ importers:
       '@tailwindcss/postcss':
         specifier: ^4.1.12
         version: 4.1.12
-      '@yellowipe/schemas':
+      '@yellowipe-linx/schemas':
         specifier: workspace:*
         version: link:../../packages/schemas
       react:
@@ -111,7 +111,7 @@ importers:
       '@prisma/client':
         specifier: 6.14.0
         version: 6.14.0(prisma@6.14.0(typescript@5.8.3))(typescript@5.8.3)
-      '@yellowipe/schemas':
+      '@yellowipe-linx/schemas':
         specifier: workspace:*
         version: link:../../packages/schemas
       bcryptjs:

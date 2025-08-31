@@ -6,7 +6,7 @@ interface LayoutProps extends PropsWithChildren {
   title?: string;
 }
 
-export const Layout: FC<LayoutProps> = ({ children, title = 'Yellowipe' }) => {
+export const Layout: FC<LayoutProps> = ({ children, title = 'Yellowipe/Linx' }) => {
   const { user, logout } = useAuth();
 
   return (

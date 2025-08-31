@@ -107,7 +107,7 @@ const AppRoutes: FC = () => {
 
 export const AppRouter: FC = () => {
   return (
-    <div className="min-h-screen bg-yellowipe-100">
+    <div className="min-h-screen bg-yellowipe-linx-100">
       <BrowserRouter>
         <AuthProvider>
           <AppRoutes />

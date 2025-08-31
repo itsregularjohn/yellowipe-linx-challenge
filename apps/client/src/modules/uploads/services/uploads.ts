@@ -6,7 +6,7 @@ import type {
   Upload,
   MyUploadsResponse,
   DeleteUploadResponse,
-} from '@yellowipe/schemas';
+} from '@yellowipe-linx/schemas';
 import { apiRequest } from '../../core';
 
 export const uploadsApi = {

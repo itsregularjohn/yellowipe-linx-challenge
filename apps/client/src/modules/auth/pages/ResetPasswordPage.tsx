@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { resetPasswordInputSchema } from '@yellowipe/schemas';
+import { resetPasswordInputSchema } from '@yellowipe-linx/schemas';
 import { authApi } from '../services/auth';
 import { Link } from 'react-router-dom';
 import { z } from 'zod';
@@ -98,7 +98,7 @@ export const ResetPasswordPage: FC = () => {
               {...register('newPassword')}
               type="password"
               id="newPassword"
-              className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-yellowipe-500 focus:border-yellowipe-500 focus:z-10 sm:text-sm"
+              className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-yellowipe-linx-500 focus:border-yellowipe-linx-500 focus:z-10 sm:text-sm"
               placeholder="Enter your new password"
             />
             {errors.newPassword && (
@@ -113,7 +113,7 @@ export const ResetPasswordPage: FC = () => {
               {...register('confirmPassword')}
               type="password"
               id="confirmPassword"
-              className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-yellowipe-500 focus:border-yellowipe-500 focus:z-10 sm:text-sm"
+              className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-yellowipe-linx-500 focus:border-yellowipe-linx-500 focus:z-10 sm:text-sm"
               placeholder="Confirm your new password"
             />
             {errors.confirmPassword && (
@@ -132,7 +132,7 @@ export const ResetPasswordPage: FC = () => {
           <div className="text-center">
             <Link
               to="/auth"
-              className="text-yellowipe-600 hover:text-yellowipe-500 font-medium"
+              className="text-yellowipe-linx-600 hover:text-yellowipe-linx-500 font-medium"
             >
               Back to login
             </Link>

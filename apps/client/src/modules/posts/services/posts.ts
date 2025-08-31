@@ -2,7 +2,7 @@ import type {
   Post,
   PostsList,
   CreatePostInput,
-} from '@yellowipe/schemas';
+} from '@yellowipe-linx/schemas';
 import { apiRequest } from '../../core';
 
 export const postsApi = {

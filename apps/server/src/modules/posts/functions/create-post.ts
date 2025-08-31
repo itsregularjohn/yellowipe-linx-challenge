@@ -1,4 +1,4 @@
-import { CreatePostInput, CreatePostResponse } from "@yellowipe/schemas";
+import { CreatePostInput, CreatePostResponse } from "@yellowipe-linx/schemas";
 import { RequestContext, prisma, requireUserContext } from "../../core";
 
 export async function createPost(

@@ -2,8 +2,8 @@ import type { FC } from 'react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import type { ForgotPasswordInput } from '@yellowipe/schemas';
-import { forgotPasswordInputSchema } from '@yellowipe/schemas';
+import type { ForgotPasswordInput } from '@yellowipe-linx/schemas';
+import { forgotPasswordInputSchema } from '@yellowipe-linx/schemas';
 import { authApi } from '../services/auth';
 import { Link } from 'react-router-dom';
 
@@ -49,7 +49,7 @@ export const ForgotPasswordPage: FC = () => {
             <div className="mt-6 text-center">
               <Link
                 to="/auth"
-                className="text-yellowipe-600 hover:text-yellowipe-500 font-medium"
+                className="text-yellowipe-linx-600 hover:text-yellowipe-linx-500 font-medium"
               >
                 Back to login
               </Link>
@@ -86,7 +86,7 @@ export const ForgotPasswordPage: FC = () => {
               {...register('email')}
               type="email"
               id="email"
-              className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-yellowipe-500 focus:border-yellowipe-500 focus:z-10 sm:text-sm"
+              className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-yellowipe-linx-500 focus:border-yellowipe-linx-500 focus:z-10 sm:text-sm"
               placeholder="Enter your email"
             />
             {errors.email && (
@@ -105,7 +105,7 @@ export const ForgotPasswordPage: FC = () => {
           <div className="text-center">
             <Link
               to="/auth"
-              className="text-yellowipe-600 hover:text-yellowipe-500 font-medium"
+              className="text-yellowipe-linx-600 hover:text-yellowipe-linx-500 font-medium"
             >
               Back to login
             </Link>

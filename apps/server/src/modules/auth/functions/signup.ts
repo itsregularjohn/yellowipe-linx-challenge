@@ -1,4 +1,4 @@
-import { SignupInput, SignupResponse } from "@yellowipe/schemas";
+import { SignupInput, SignupResponse } from "@yellowipe-linx/schemas";
 import { RequestContext, ConflictError, prisma } from "../../core";
 import { hashPassword } from "./utils/password";
 import { generateToken } from "./utils/jwt";

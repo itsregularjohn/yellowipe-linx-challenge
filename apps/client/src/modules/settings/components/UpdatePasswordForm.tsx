@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { updatePasswordInputSchema } from '@yellowipe/schemas';
+import { updatePasswordInputSchema } from '@yellowipe-linx/schemas';
 import { authApi } from '../../auth/services/auth';
 import { z } from 'zod';
 
@@ -72,7 +72,7 @@ export const UpdatePasswordForm: FC = () => {
             {...register('currentPassword')}
             type="password"
             id="currentPassword"
-            className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellowipe-500 focus:border-yellowipe-500 sm:text-sm"
+            className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellowipe-linx-500 focus:border-yellowipe-linx-500 sm:text-sm"
             placeholder="Enter current password"
           />
           {errors.currentPassword && (
@@ -88,7 +88,7 @@ export const UpdatePasswordForm: FC = () => {
             {...register('newPassword')}
             type="password"
             id="newPassword"
-            className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellowipe-500 focus:border-yellowipe-500 sm:text-sm"
+            className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellowipe-linx-500 focus:border-yellowipe-linx-500 sm:text-sm"
             placeholder="Enter new password"
           />
           {errors.newPassword && (
@@ -104,7 +104,7 @@ export const UpdatePasswordForm: FC = () => {
             {...register('confirmPassword')}
             type="password"
             id="confirmPassword"
-            className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellowipe-500 focus:border-yellowipe-500 sm:text-sm"
+            className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellowipe-linx-500 focus:border-yellowipe-linx-500 sm:text-sm"
             placeholder="Confirm new password"
           />
           {errors.confirmPassword && (

@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import { useState, useEffect } from "react";
-import type { Post, PostsList } from "@yellowipe/schemas";
+import type { Post, PostsList } from "@yellowipe-linx/schemas";
 import { postsApi } from "../services/posts";
 import { PostCard } from "./PostCard";
 

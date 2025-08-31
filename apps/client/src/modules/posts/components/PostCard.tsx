@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import { useState } from "react";
-import type { Post } from "@yellowipe/schemas";
+import type { Post } from "@yellowipe-linx/schemas";
 import { useAuth } from "../../auth/contexts/AuthContext";
 
 interface PostCardProps {

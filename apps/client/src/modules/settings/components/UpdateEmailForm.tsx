@@ -2,8 +2,8 @@ import type { FC } from 'react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import type { UpdateEmailInput } from '@yellowipe/schemas';
-import { updateEmailInputSchema } from '@yellowipe/schemas';
+import type { UpdateEmailInput } from '@yellowipe-linx/schemas';
+import { updateEmailInputSchema } from '@yellowipe-linx/schemas';
 import { authApi } from '../../auth/services/auth';
 import { useAuth } from '../../auth/contexts/AuthContext';
 
@@ -67,7 +67,7 @@ export const UpdateEmailForm: FC = () => {
             {...register('newEmail')}
             type="email"
             id="newEmail"
-            className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellowipe-500 focus:border-yellowipe-500 sm:text-sm"
+            className="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-yellowipe-linx-500 focus:border-yellowipe-linx-500 sm:text-sm"
             placeholder="Enter new email address"
           />
           {errors.newEmail && (

@@ -4,7 +4,7 @@ import {
   presignedUrlInputSchema,
   confirmUploadInputSchema,
   deleteUploadParamsSchema,
-} from "@yellowipe/schemas";
+} from "@yellowipe-linx/schemas";
 import { getContext } from "../../core";
 import { authMiddleware } from "../../auth";
 import {

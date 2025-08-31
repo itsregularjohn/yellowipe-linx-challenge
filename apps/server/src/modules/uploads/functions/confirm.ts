@@ -1,6 +1,6 @@
 import { RequestContext, BadRequestError, prisma, env } from "../../core";
 import { validateUploadKey, generatePresignedViewUrl } from "./utils/s3";
-import type { ConfirmUploadInput, ConfirmUploadResponse } from "@yellowipe/schemas";
+import type { ConfirmUploadInput, ConfirmUploadResponse } from "@yellowipe-linx/schemas";
 
 export async function confirmUpload(
   context: RequestContext,

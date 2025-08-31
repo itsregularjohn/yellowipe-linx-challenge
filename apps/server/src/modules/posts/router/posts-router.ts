@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import { zValidator } from "@hono/zod-validator";
-import { createPostInputSchema } from "@yellowipe/schemas";
+import { createPostInputSchema } from "@yellowipe-linx/schemas";
 import { getContext } from "../../core";
 import { authMiddleware } from "../../auth/middleware";
 import {

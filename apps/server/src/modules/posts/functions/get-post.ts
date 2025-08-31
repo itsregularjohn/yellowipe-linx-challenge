@@ -1,4 +1,4 @@
-import { GetPostResponse } from "@yellowipe/schemas";
+import { GetPostResponse } from "@yellowipe-linx/schemas";
 import { RequestContext, prisma, NotFoundError } from "../../core";
 
 export async function getPost(

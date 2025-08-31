@@ -1,4 +1,4 @@
-import { PostsList } from "@yellowipe/schemas";
+import { PostsList } from "@yellowipe-linx/schemas";
 import { RequestContext, prisma } from "../../core";
 
 export async function getPosts(

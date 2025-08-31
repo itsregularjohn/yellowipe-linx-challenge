@@ -11,7 +11,7 @@ export const AuthPage: FC = () => {
         <div className="bg-white shadow-xl rounded-lg p-8">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold text-gray-900">
-              {isLogin ? 'Sign in to Yellowipe' : 'Create your account'}
+              {isLogin ? 'Sign in to Yellowipe/Linx' : 'Create your account'}
             </h2>
             <p className="mt-2 text-sm text-gray-600">
               {isLogin ? "Welcome back! We're glad to see you." : "Join us and start your journey."}

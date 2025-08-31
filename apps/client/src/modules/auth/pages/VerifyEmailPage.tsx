@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
-import type { VerifyEmailInput, SendVerificationEmailInput } from '@yellowipe/schemas';
-import { verifyEmailInputSchema, sendVerificationEmailInputSchema } from '@yellowipe/schemas';
+import type { VerifyEmailInput, SendVerificationEmailInput } from '@yellowipe-linx/schemas';
+import { verifyEmailInputSchema, sendVerificationEmailInputSchema } from '@yellowipe-linx/schemas';
 import { authApi } from '../services/auth';
 
 export const VerifyEmailPage: FC = () => {
@@ -123,7 +123,7 @@ export const VerifyEmailPage: FC = () => {
               {...register('code')}
               type="text"
               id="code"
-              className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-yellowipe-500 focus:border-yellowipe-500 focus:z-10 sm:text-sm"
+              className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-yellowipe-linx-500 focus:border-yellowipe-linx-500 focus:z-10 sm:text-sm"
               placeholder="Enter verification code"
             />
             {errors.code && (
@@ -134,7 +134,7 @@ export const VerifyEmailPage: FC = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellowipe-600 hover:bg-yellowipe-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellowipe-500 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellowipe-linx-600 hover:bg-yellowipe-linx-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellowipe-linx-500 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? 'Verifying...' : 'Verify Email'}
             </button>
@@ -163,7 +163,7 @@ export const VerifyEmailPage: FC = () => {
                   {...registerResend('email')}
                   type="email"
                   id="resendEmail"
-                  className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-yellowipe-500 focus:border-yellowipe-500 focus:z-10 sm:text-sm"
+                  className="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-yellowipe-linx-500 focus:border-yellowipe-linx-500 focus:z-10 sm:text-sm"
                   placeholder="Enter your email"
                 />
                 {resendErrors.email && (
@@ -173,7 +173,7 @@ export const VerifyEmailPage: FC = () => {
               <button
                 type="submit"
                 disabled={isResending}
-                className="mt-4 w-full flex justify-center py-2 px-4 border border-yellowipe-300 text-sm font-medium rounded-md text-yellowipe-700 bg-gradient-to-br from-yellow-50 to-yellow-100 hover:bg-gradient-to-br from-yellow-50 to-yellow-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellowipe-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="mt-4 w-full flex justify-center py-2 px-4 border border-yellowipe-linx-300 text-sm font-medium rounded-md text-yellowipe-linx-700 bg-gradient-to-br from-yellow-50 to-yellow-100 hover:bg-gradient-to-br from-yellow-50 to-yellow-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellowipe-linx-500 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isResending ? 'Sending...' : 'Resend verification email'}
               </button>
@@ -183,7 +183,7 @@ export const VerifyEmailPage: FC = () => {
           <div className="text-center mt-6">
             <Link
               to="/auth"
-              className="text-yellowipe-600 hover:text-yellowipe-500 font-medium"
+              className="text-yellowipe-linx-600 hover:text-yellowipe-linx-500 font-medium"
             >
               Back to login
             </Link>

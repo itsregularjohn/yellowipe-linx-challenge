@@ -1,5 +1,5 @@
 {
-  "name": "@yellowipe/client",
+  "name": "@yellowipe-linx/client",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -16,7 +16,7 @@
     "@hookform/resolvers": "^5.2.1",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/postcss": "^4.1.12",
-    "@yellowipe/schemas": "workspace:*",
+    "@yellowipe-linx/schemas": "workspace:*",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-hook-form": "^7.62.0",

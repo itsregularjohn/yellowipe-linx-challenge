@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import { useState } from "react";
-import type { CreatePostInput } from "@yellowipe/schemas";
+import type { CreatePostInput } from "@yellowipe-linx/schemas";
 import { useAuth } from "../../auth/contexts/AuthContext";
 import { uploadsApi } from "../../uploads/services/uploads";
 

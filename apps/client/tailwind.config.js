@@ -19,7 +19,7 @@ export default {
         ],
       },
       colors: {
-        yellowipe: {
+        "yellowipe-linx": {
           50: "#fefdf0",
           100: "#fefbe8",
           200: "#fef3c7",

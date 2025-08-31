@@ -1,4 +1,4 @@
-import { Post, SignupResponse, CreatePostResponse, GetPostResponse, PostsList } from "@yellowipe/schemas";
+import { Post, SignupResponse, CreatePostResponse, GetPostResponse, PostsList } from "@yellowipe-linx/schemas";
 import { PrismaClient } from "../generated/prisma";
 
 const BASE_URL = "http://localhost:4000";

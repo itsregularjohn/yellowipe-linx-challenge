@@ -1,6 +1,6 @@
 import { RequestContext, BadRequestError, prisma } from "../../core";
 import { generatePresignedViewUrl } from "./utils/s3";
-import type { MyUploadsResponse } from "@yellowipe/schemas";
+import type { MyUploadsResponse } from "@yellowipe-linx/schemas";
 
 export async function getMyUploads(
   context: RequestContext,

@@ -1,4 +1,4 @@
-# Yellowipe
+# Yellowipe/Linx
 
 Uma aplicação de rede social simples desenvolvida como parte de um teste técnico. O projeto permite que usuários se cadastrem, façam login, façam upload de imagens e visualizem um feed básico.
 
@@ -27,7 +27,7 @@ Validação: [Zod](https://github.com/colinhacks/zod) schemas compartilhados
 ## Estrutura do Projeto
 
 ```
-yellowipe/
+yellowipe-linx/
 ├── apps/
 │   ├── client/          # Frontend React
 │   └── server/          # Backend Node.js
@@ -65,8 +65,8 @@ npx prisma migrate dev
 pnpm dev
 
 # Ou executar individualmente:
-pnpm run dev --filter=@yellowipe/server  # Backend
-pnpm run dev --filter=@yellowipe/client  # Frontend
+pnpm run dev --filter=@yellowipe-linx/server  # Backend
+pnpm run dev --filter=@yellowipe-linx/client  # Frontend
 ```
 
 ### Build

@@ -1,5 +1,5 @@
 import { sign, verify } from "jsonwebtoken";
-import { User } from "@yellowipe/schemas";
+import { User } from "@yellowipe-linx/schemas";
 import { env } from "../../../core";
 
 export function generateToken(user: User): string {

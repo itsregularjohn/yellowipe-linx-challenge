@@ -1,4 +1,4 @@
-import { LoginInput, LoginResponse } from "@yellowipe/schemas";
+import { LoginInput, LoginResponse } from "@yellowipe-linx/schemas";
 import { RequestContext, UnauthorizedError, prisma } from "../../core";
 import { verifyPassword } from "./utils/password";
 import { generateToken } from "./utils/jwt";

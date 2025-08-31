@@ -1,4 +1,4 @@
-import type { User } from '@yellowipe/schemas';
+import type { User } from '@yellowipe-linx/schemas';
 
 export interface AuthState {
   isAuthenticated: boolean;

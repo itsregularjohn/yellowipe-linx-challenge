@@ -2,8 +2,8 @@ import type { FC } from 'react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import type { LoginInput } from '@yellowipe/schemas';
-import { loginInputSchema } from '@yellowipe/schemas';
+import type { LoginInput } from '@yellowipe-linx/schemas';
+import { loginInputSchema } from '@yellowipe-linx/schemas';
 import { useAuth } from '../contexts/AuthContext';
 import { Link } from 'react-router-dom';
 

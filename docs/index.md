@@ -1,4 +1,4 @@
-# Yellowipe - Documentação
+# Yellowipe/Linx - Documentação
 
 ## Visão Geral
 

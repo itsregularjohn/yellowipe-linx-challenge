@@ -16,7 +16,7 @@ import type {
   UpdatePasswordInput,
   UpdatePasswordResponse,
   User,
-} from '@yellowipe/schemas';
+} from '@yellowipe-linx/schemas';
 import { AUTH_STORAGE_KEY } from '../../../constants';
 import { apiRequest } from '../../core';
 

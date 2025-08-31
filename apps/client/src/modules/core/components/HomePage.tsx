@@ -4,7 +4,7 @@ import { Layout } from './Layout';
 import { useAuth } from '../../auth/contexts/AuthContext';
 import { PostTextarea, PostsFeed } from '../../posts/components';
 import { postsApi } from '../../posts/services/posts';
-import type { CreatePostInput } from '@yellowipe/schemas';
+import type { CreatePostInput } from '@yellowipe-linx/schemas';
 
 export const HomePage: FC = () => {
   const { user } = useAuth();
@@ -26,7 +26,7 @@ export const HomePage: FC = () => {
         <div className="bg-white overflow-hidden shadow rounded-lg">
           <div className="px-4 py-5 sm:p-6">
             <h2 className="text-lg font-medium text-gray-900 mb-4">
-              Welcome, Yellowipe! 🟡
+              Welcome, Yellowipe/Linx! 🟡
             </h2>
             <div className="text-sm text-gray-600">
               <p className="mb-2">Hello, {user?.name}!</p>

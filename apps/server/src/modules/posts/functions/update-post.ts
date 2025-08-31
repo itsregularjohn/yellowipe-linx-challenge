@@ -1,4 +1,4 @@
-import { UpdatePostInput, UpdatePostResponse } from "@yellowipe/schemas";
+import { UpdatePostInput, UpdatePostResponse } from "@yellowipe-linx/schemas";
 import { RequestContext, prisma, NotFoundError, ForbiddenError, requireUserContext } from "../../core";
 
 export async function updatePost(

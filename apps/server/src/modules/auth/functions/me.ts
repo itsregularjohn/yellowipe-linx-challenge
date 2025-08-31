@@ -1,4 +1,4 @@
-import { User } from "@yellowipe/schemas";
+import { User } from "@yellowipe-linx/schemas";
 import { RequestContext, requireUserContext, prisma } from "../../core";
 
 export async function me(context: RequestContext): Promise<User> {

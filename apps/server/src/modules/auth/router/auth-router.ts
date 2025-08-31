@@ -10,7 +10,7 @@ import {
   verifyEmailInputSchema,
   updateEmailInputSchema,
   updatePasswordInputSchema,
-} from "@yellowipe/schemas";
+} from "@yellowipe-linx/schemas";
 import { getContext, env, UnauthorizedError } from "../../core";
 import { authMiddleware } from "../middleware";
 import {

@@ -1,6 +1,6 @@
 import { RequestContext, BadRequestError, NotFoundError, prisma } from "../../core";
 import { deleteFromS3 } from "./utils/s3";
-import type { DeleteUploadParams, DeleteUploadResponse } from "@yellowipe/schemas";
+import type { DeleteUploadParams, DeleteUploadResponse } from "@yellowipe-linx/schemas";
 
 export interface DeleteUploadInput {
   uploadId: string;

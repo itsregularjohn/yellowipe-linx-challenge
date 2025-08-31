@@ -3,7 +3,7 @@ import { ulid } from "ulid";
 import {
   ForgotPasswordInput,
   ForgotPasswordResponse,
-} from "@yellowipe/schemas";
+} from "@yellowipe-linx/schemas";
 import { sendEmail } from "./utils/send-email";
 
 export async function forgotPassword(

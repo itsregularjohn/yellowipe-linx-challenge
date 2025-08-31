@@ -1,6 +1,6 @@
 import { RequestContext, BadRequestError, prisma } from "../../core";
 import { generatePresignedUrl } from "./utils/s3";
-import type { PresignedUrlInput, PresignedUrlResponse } from "@yellowipe/schemas";
+import type { PresignedUrlInput, PresignedUrlResponse } from "@yellowipe-linx/schemas";
 
 export async function createPresignedUrl(
   context: RequestContext,

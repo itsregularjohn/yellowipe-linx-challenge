@@ -2,8 +2,8 @@ import type { FC } from 'react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import type { SignupInput } from '@yellowipe/schemas';
-import { signupInputSchema } from '@yellowipe/schemas';
+import type { SignupInput } from '@yellowipe-linx/schemas';
+import { signupInputSchema } from '@yellowipe-linx/schemas';
 import { useAuth } from '../contexts/AuthContext';
 
 interface SignupFormProps {

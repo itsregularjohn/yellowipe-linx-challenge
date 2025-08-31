@@ -1,8 +1,8 @@
 {
-  "name": "@yellowipe/schemas",
+  "name": "@yellowipe-linx/schemas",
   "version": "1.0.0",
   "type": "module",
-  "description": "Shared Zod schemas for Yellowipe social media platform",
+  "description": "Shared Zod schemas for Yellowipe/Linx social media platform",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {

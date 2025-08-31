@@ -8,7 +8,7 @@ Aceito
 
 ## Contexto
 
-O projeto Yellowipe requer um backend (Node.js) e frontend (React) que precisam compartilhar validações e tipos comuns. Diferentes abordagens foram consideradas:
+O projeto Yellowipe/Linx requer um backend (Node.js) e frontend (React) que precisam compartilhar validações e tipos comuns. Diferentes abordagens foram consideradas:
 
 1. Repositórios separados com pacotes npm publicados
 2. Monorepo com Yarn Workspaces

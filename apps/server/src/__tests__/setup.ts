@@ -22,6 +22,16 @@ afterAll(async () => {
 
 afterEach(async () => {
   if (globalWithDb.testDb) {
+    await globalWithDb.testDb.post.deleteMany({
+      where: {
+        user: {
+          email: {
+            contains: "test",
+          },
+        },
+      },
+    });
+
     await globalWithDb.testDb.upload.deleteMany({
       where: {
         user: {

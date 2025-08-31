@@ -34,17 +34,14 @@ modules/
 
 ## Funcionalidades Implementadas
 
-- ✅ Sistema de autenticação completo
-- ✅ Upload de imagens para S3 com URLs pré-assinadas
-- ✅ Validação compartilhada frontend/backend
-- ✅ Testes automatizados com cobertura de auth e uploads
-- ✅ Sistema de configurações do usuário
-- ✅ Sistema de posts
-
-## Funcionalidades em Desenvolvimento
-
-- 🚧 Sistema de comentários
-- 🚧 Sistema de reações/likes
+- Sistema de autenticação completo
+- Upload de imagens para S3 com URLs pré-assinadas
+- Validação compartilhada frontend/backend
+- Testes automatizados com cobertura de auth e uploads
+- Sistema de configurações do usuário
+- Sistema de posts
+- Sistema de comentários
+- Sistema de reações/likes
 
 ---
 

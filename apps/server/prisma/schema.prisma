@@ -25,6 +25,7 @@ model User {
   
   verificationCodes VerificationCode[]
   uploads           Upload[]
+  posts             Post[]
 }
 
 model VerificationCode {
@@ -49,5 +50,17 @@ model Upload {
   publicUrl        String
   userId           String
   
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user  User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  posts Post[]
+}
+
+model Post {
+  id       String   @id @default(ulid())
+  createdAt DateTime @default(now())
+  content  String
+  uploadId String?
+  userId   String
+  
+  user   User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  upload Upload? @relation(fields: [uploadId], references: [id], onDelete: SetNull)
 }

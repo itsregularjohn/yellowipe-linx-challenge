@@ -1,0 +1,34 @@
+# Dependencies
+node_modules
+*/node_modules
+
+# Build outputs (will be generated during build)
+dist
+*/dist
+
+# Development files
+.env
+.env.local
+*.log
+.git
+.github
+README.md
+docs
+
+# IDE files
+.vscode
+.idea
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test files
+coverage
+*.test.*
+__tests__
+jest.config.*
+
+# Development tools
+.turbo
+.eslintcache

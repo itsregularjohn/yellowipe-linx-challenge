@@ -1,5 +1,5 @@
 # Use Node.js 22.16
-FROM node:22.16-alpine AS base
+FROM node:22.16-alpine@sha256:41e4389f3d988d2ed55392df4db1420ad048ae53324a8e2b7c6d19508288107e AS base
 
 # Install pnpm globally
 RUN npm install -g pnpm@9.0.0
@@ -41,15 +41,12 @@ RUN cd apps/server && npx prisma generate --no-engine
 RUN pnpm run build --filter=@yellowipe-linx/server
 
 # Production stage
-FROM node:22.16-alpine AS production
+FROM node:22.16-alpine@sha256:41e4389f3d988d2ed55392df4db1420ad048ae53324a8e2b7c6d19508288107e AS production
 
 WORKDIR /app
 
 # Copy only the bundled application
 COPY --from=builder /app/apps/server/dist/index.js ./
-
-# Copy Prisma client and generated files
-# COPY --from=builder /app/apps/server/src/generated/prisma ./src/generated/prisma
 
 # Create non-root user for security
 RUN addgroup -g 1001 -S nodejs && \

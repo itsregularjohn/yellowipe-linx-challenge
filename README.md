@@ -87,6 +87,31 @@ pnpm test
 pnpm test:watch
 ```
 
+### Docker
+
+O projeto também inclui configuração Docker para facilitar o deploy:
+
+```bash
+# Construir a imagem Docker
+docker build -t server .
+
+# Executar o container
+docker run -d --name container -p 4000:4000 --env-file ./apps/server/.env.local server
+
+# Verificar logs
+docker logs container
+
+# Parar e remover container
+docker stop container && docker rm container
+```
+
+A imagem Docker é otimizada para produção com:
+- Node.js Alpine base (imagem leve)
+- Prisma Accelerate (sem binary local)
+- Multi-stage build para menor tamanho final
+- Usuário não-root para segurança
+- Image digest pinning para builds reproduzíveis e seguras
+
 ## Deploy
 
 Backend (AWS Lambda):
